@@ -1,0 +1,59 @@
+﻿@model IEnumerable<mvc_project2k18.Models.employee>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Υπάλληλοι</h2>
+
+<p>
+    @Html.ActionLink("Νέα Εγγραφή", "Create")
+</p>
+<table class="table table-hover table-responsive">
+    <tr>
+        <th>
+            Όνομα
+        </th>
+        <th>
+            Επίπεδο
+        </th>
+        <th>
+            Ημέρα πρόσληψης
+        </th>
+        <th>
+            περιγραφή θέσης
+        </th>
+        <th>
+            Εκδ. οίκος
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.fname) @Html.DisplayFor(modelItem => item.minit) @Html.DisplayFor(modelItem => item.lname)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.job_lvl)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.hire_date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.job.job_desc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.publisher.pub_name)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.emp_id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.emp_id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.emp_id })
+            </td>
+        </tr>
+    }
+
+</table>

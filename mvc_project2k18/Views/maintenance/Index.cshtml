@@ -1,0 +1,53 @@
+﻿@model mvc_project2k18.Models.login
+@{
+    ViewBag.Title = "Διαχείρηση";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Maintenance</h2>
+
+<div class="container">
+    <div>
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12">
+                        <h3>
+                            <select id="first_choice" name="epilogi">
+                                <option value="1">Backup</option>
+                                <option value="2">Restore</option>
+
+                            </select>
+                        </h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 col-md-12">
+                        <h3>ΣΥΝΔΕΣΗ</h3>
+                    </div>
+                    <div class="col-lg-12 col-md-12">
+                        <form asp-controller="search1" asp-action="Index" method="post" >
+                            <div style="padding:2px; margin:2px;" class="row"><div class="col-lg-2">username:</div> <div class="col-lg-10">@Html.EditorFor(Model => Model.username) </div></div>
+                            <div style="padding:2px; margin:2px;" class="row"><div class="col-lg-2">password:</div> <div class="col-lg-10">@Html.PasswordFor(Model => Model.password)</div></div>
+                            <input id="final_choice" name="choice" type="hidden" />
+                            <div class="form1 row "><input type="submit" /></div>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+
+
+</div>
+<script>
+    $("#final_choice").val("1");
+    $("#first_choice").change(function () {
+        $("#final_choice").val($("#first_choice").val());
+    })
+</script>

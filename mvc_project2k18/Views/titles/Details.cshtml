@@ -1,0 +1,94 @@
+﻿@model mvc_project2k18.Models.title
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Βιβλία</h2>
+
+<div>
+    <h4 class="h4kartela">Καρτέλα βιβλίου</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Τίτλος
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.title1)
+        </dd>
+
+        <dt>
+            Τύπος
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.type)
+        </dd>
+
+        <dt>
+            Τιμή
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.price)
+        </dd>
+
+        <dt>
+            Προ
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.advance)
+        </dd>
+
+        <dt>
+            Δικαιώματα
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.royalty)
+        </dd>
+
+        <dt>
+            Προπωλήσεις
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ytd_sales)
+        </dd>
+
+        <dt>
+            Σημειώσεις
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.notes)
+        </dd>
+
+        <dt>
+            Ημερομηνία έκδοσης
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pubdate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.publisher.pub_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.publisher.pub_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.roysched.title_id)
+        </dt>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.title_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

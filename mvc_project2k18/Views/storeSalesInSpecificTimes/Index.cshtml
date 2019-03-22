@@ -1,0 +1,61 @@
+﻿@model List<mvc_project2k18.Models.storeSalesInSpecificTime>
+
+@{
+    ViewBag.Title = "Πωλήσεις σε συγκεκριμένο χρονικό διάστημα";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+
+
+    .list-group-item:nth-child(2n+1) {
+        background-color: #a7a874;
+    }
+
+    .list-group-item1 {
+        background-color: #28b374;
+        font-weight: 900;
+        color: rgb(255, 255, 255);
+        margin-bottom: 5px;
+    }
+
+    .list-group-item {
+        padding: 5px 15px;
+    }
+
+</style>
+
+<div class="row">
+    <div >
+        <h2>Αναζήτηση : Παραγγελίες καταστήματος σε χρονικό διάστημα</h2>
+    </div>
+
+    <div class="contain">
+        <div class="row">
+            <div class="col-lg-12 col-m-12 text-center">
+                <form asp-controller="search1" asp-action="Index" method="post">
+                    Κατάστημα: <input type="text" name="SearchString">
+                    Χρονικό διάστημα  από: <input type="date" name="searchdate1">
+                    έως: <input type="date" name="searchdate2">
+                    <input type="submit" value="Αναζήτηση" />
+                </form>
+            </div>
+
+            <div class="col-lg-12 col-m-12" style="margin-top:10px;">
+                <div class="row list-group-item list-group-item1">
+                    <div class="col-lg-3 col-md-3 col-sm-3">ID(date)</div><div class="col-lg-5 col-md-5 col-sm-5">ΚΑΤΑΣΤΗΜΑ</div><div class="col-lg-4 col-md-4 col-sm-4">ΤΙΤΛΟΣ ΒΙΒΛΙΟΥ</div>
+                </div>
+
+                @foreach (var row in Model)
+                {
+                    <div class="row list-group-item">
+                        <div class="col-lg-3 col-md-3 col-sm-3">@row.id @row.date</div><div class="col-lg-5 col-md-5 col-sm-5">@row.store_name (@row.store_adress)</div><div class="col-lg-4 col-md-4 col-sm-4">@row.title</div>
+                    </div>
+                }
+
+            </div>
+
+        </div>
+    </div>
+
+</div>

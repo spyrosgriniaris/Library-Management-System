@@ -1,0 +1,90 @@
+﻿@model IEnumerable<mvc_project2k18.Models.title>
+
+
+@{
+    ViewBag.Title = "Βιβλία";
+}
+
+
+<h2>Βιβλία</h2>
+
+<p>
+    @Html.ActionLink("Νέα εγγραφή", "Create")
+</p>
+<table class="table table-hover table-responsive">
+    <tr>
+        <th>
+            Τίτλος
+        </th>
+        <th>
+            Τύπος
+        </th>
+        <th>
+            Τιμή
+        </th>
+        <th>
+            Προκατ.
+        </th>
+        <th>
+            Δικαιώματα
+        </th>
+        <th>
+            στόχος
+        </th>
+        <th>
+            σχόλια
+        </th>
+        <th>
+            ημερομηνία εκδ.
+        </th>
+        <th>
+            εκδ.οίκος
+        </th>
+        <th>
+
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.title1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.advance)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.royalty)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ytd_sales)
+            </td>
+            <td style="max-height: 70px;display: block;overflow-y: scroll;">
+                @Html.DisplayFor(modelItem => item.notes)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pubdate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.publisher.pub_name)
+            </td>
+            <td></td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.title_id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.title_id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.title_id })
+            </td>
+        </tr>
+    }
+
+</table>
+
+

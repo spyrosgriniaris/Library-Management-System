@@ -1,0 +1,69 @@
+﻿@model IEnumerable<mvc_project2k18.Models.publisher>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<style type="text/css">
+
+    .scroll {
+        max-height: 80px;
+        display: block;
+        overflow-y: scroll;
+    }
+</style>
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Νέα Εγγραφή", "Create")
+</p>
+<div class="table-responsive-sm">
+    <table class="table table-hover">
+        <tr>
+            <th>
+                Όνομα
+            </th>
+            <th>
+                Πόλη
+            </th>
+            <th>
+                Περιοχή
+            </th>
+            <th>
+                Χώρα
+            </th>
+            <th>
+                Περιγραφή
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.pub_name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.city)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.state)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.country)
+                </td>
+                <td class="scroll">
+                    @Html.DisplayFor(modelItem => item.pub_info.pr_info)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.pub_id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.pub_id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.pub_id })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

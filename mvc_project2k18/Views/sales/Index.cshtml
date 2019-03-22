@@ -1,0 +1,59 @@
+﻿@model IEnumerable<mvc_project2k18.Models.sale>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Πωλήσεις</h2>
+
+<p>
+    @Html.ActionLink("Νέα Παραγγελία", "Create")
+</p>
+<table class="table table-hover table-responsive">
+    <tr>
+        <th>
+            Ημερομηνία
+        </th>
+        <th>
+            Ποσότητα
+        </th>
+        <th>
+            Όροι
+        </th>
+        <th>
+            Κατάστημα
+        </th>
+        <th>
+            Τίτλος προϊόντος
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ord_date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.qty)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.payterms)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.store.stor_name)
+            </td>
+            <td style="max-width:400px">
+                @Html.DisplayFor(modelItem => item.title.title1)
+                @Html.DisplayFor(modelItem => item.stor_id)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ord_num, id2 = item.stor_id, id3 = item.title_id })  |
+                @Html.ActionLink("Details", "Details", new { id = item.ord_num, id2 = item.stor_id, id3 = item.title_id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ord_num, id2 = item.stor_id, id3 = item.title_id })
+            </td>
+        </tr>
+    }
+
+</table>
